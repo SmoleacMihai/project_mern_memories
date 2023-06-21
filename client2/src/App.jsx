@@ -5,7 +5,7 @@ import Posts from './components/Posts';
 import Form from './components/Form';
 import { getPosts } from './actions/posts';
 import memories from './images/memories.png';
-import { AppBar, Container, Grid, Grow, Typography } from '@mui/material';
+import { Container, Grid, Grow } from '@mui/material';
 import { StyledAppBar, StyledHeading, StyledImage } from './styles/index.styled';
 
 const App = () => {
@@ -19,7 +19,7 @@ const App = () => {
   return (
     <Container>
       <StyledAppBar position="static" color="inherit">
-        <StyledHeading variant="h2" align="center">Notes</StyledHeading>
+        <StyledHeading variant="h2" align="center">Memories</StyledHeading>
         <StyledImage src={memories} alt="icon" height="60" />
       </StyledAppBar>
       <Grow in>

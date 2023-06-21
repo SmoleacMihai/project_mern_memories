@@ -4,12 +4,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
 import { createPost, updatePost } from '../../actions/posts';
 import { StyledButton, StyledFileUploadContainer, StyledForm, StyledPaper } from './index.styled';
+import AddIcon from '@mui/icons-material/Add';
 
 const Form = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({ creator: '', title: '', message: '', tags: '', selectedFile: '' });
   const post = useSelector((state) => (currentId ? state.posts.find((message) => message._id === currentId) : null));
   const dispatch = useDispatch();
+  console.log(postData);
 
+  useEffect(() => {
+    console.log('rerender');
+  })
   useEffect(() => {
     if (post) setPostData(post);
   }, [post]);
@@ -70,12 +75,12 @@ const Form = ({ currentId, setCurrentId }) => {
           value={postData.tags} 
           onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',') })} 
         />
-        <StyledFileUploadContainer  >
-          <FileBase 
+        <StyledFileUploadContainer>
+          {!postData.selectedFile ? <FileBase 
             type="file" 
             multiple={false} 
             onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} 
-          />
+          /> : "File uploaded!!"}
         </StyledFileUploadContainer>
         <StyledButton
           variant="contained" 

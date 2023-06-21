@@ -66,8 +66,9 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="outlined" 
           label="Tags (coma 
           separated
-          )" fullWidth value={postData.
-          tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',') })} 
+          )" fullWidth 
+          value={postData.tags} 
+          onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',') })} 
         />
         <StyledFileUploadContainer  >
           <FileBase 

@@ -1,4 +1,4 @@
-import { CardActions, CardContent, Button, Typography, IconButton } from '@mui/material'
+import { CardContent, Button, Typography, IconButton } from '@mui/material'
 
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
@@ -6,8 +6,8 @@ import { useDispatch } from 'react-redux';
 import { likePost, deletePost } from '../../../actions/posts';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import DeleteIcon from '@mui/icons-material/Delete';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import { Details, StyledCard, StyledCardMedia, StyledOverlay, StyledOverlay2, StyledTypography } from './index.styled';
+import EditIcon from '@mui/icons-material/Edit';
+import { Details, StyledCard, StyledCardActions, StyledCardMedia, StyledOverlay, StyledOverlay2, StyledTypography } from './index.styled';
 
 const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
@@ -20,7 +20,9 @@ const Post = ({ post, setCurrentId }) => {
         <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
       </StyledOverlay>
       <StyledOverlay2>
-        <IconButton sx={{color: 'white'}} size="small" onClick={() => setCurrentId(post._id)}><MoreHorizIcon fontSize="default" /></IconButton>
+        <IconButton sx={{color: 'white'}} size="small" onClick={() => setCurrentId(post._id)}>
+          <EditIcon fontSize="default" />
+        </IconButton>
       </StyledOverlay2>
       <Details>
         <Typography variant="body2" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
@@ -29,12 +31,28 @@ const Post = ({ post, setCurrentId }) => {
         {post.title}
       </StyledTypography>
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">{post.message}</Typography>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {post.message}
+        </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small" color="primary" onClick={() => dispatch(likePost(post._id))}><ThumbUpAltIcon fontSize="small" /> Like {post.likeCount} </Button>
-        <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}><DeleteIcon fontSize="small" /> Delete</Button>
-      </CardActions>
+      <StyledCardActions>
+        <Button 
+          size="small" 
+          color="primary" 
+          onClick={() => dispatch(likePost(post._id))}
+        >
+          <ThumbUpAltIcon fontSize="small" />
+          Like {post.likeCount} 
+        </Button>
+        <Button 
+          size="small" 
+          color="primary" 
+          onClick={() => dispatch(deletePost(post._id))}
+        >
+          <DeleteIcon fontSize="small" />
+          Delete
+        </Button>
+      </StyledCardActions>
     </StyledCard>
   );
 };

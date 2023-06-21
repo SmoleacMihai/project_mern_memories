@@ -21,4 +21,9 @@ export const StyledFileUploadContainer = styled('div')({
 
 export const StyledButton = styled(Button)({
   marginBottom: 10,
+  backgroundColor: "#f94449",
+  '&:hover' : {
+    backgroundColor: "#fff",
+    color: "#f94449"
+  }
 });

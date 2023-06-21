@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import Posts from './components/Posts/Posts';
+import Posts from './components/Posts';
 import Form from './components/Form';
 import { getPosts } from './actions/posts';
 import memories from './images/memories.png';
 import { AppBar, Container, Grid, Grow, Typography } from '@mui/material';
+import { StyledAppBar, StyledHeading, StyledImage } from './styles/index.styled';
 
 const App = () => {
   const [currentId, setCurrentId] = useState(0);
@@ -16,11 +17,11 @@ const App = () => {
   }, [currentId, dispatch]);
 
   return (
-    <Container maxWidth="lg">
-      <AppBar position="static" color="inherit">
-        <Typography variant="h2" align="center">Memories</Typography>
-        <img src={memories} alt="icon" height="60" />
-      </AppBar>
+    <Container>
+      <StyledAppBar position="static" color="inherit">
+        <StyledHeading variant="h2" align="center">Notes</StyledHeading>
+        <StyledImage src={memories} alt="icon" height="60" />
+      </StyledAppBar>
       <Grow in>
         <Container>
           <Grid container justify="space-between" alignItems="stretch" spacing={3}>

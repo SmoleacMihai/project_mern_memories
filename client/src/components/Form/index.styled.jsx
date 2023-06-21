@@ -2,7 +2,9 @@ import styled from "@emotion/styled";
 import { Button, Paper } from "@mui/material";
 
 export const StyledPaper = styled(Paper)({
-  padding: 16
+  padding: 16,
+  marginInline: 300,
+  marginBottom: 20
 });
 
 export const StyledForm = styled('form')({

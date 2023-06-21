@@ -11,7 +11,7 @@ export const StyledAppBar = styled(AppBar)({
 });
 
 export const StyledHeading = styled(Typography)({
-  color: 'rgba(0,183,255, 1)',
+  color: '#f94449',
 });
 
 export const StyledImage = styled('img')({

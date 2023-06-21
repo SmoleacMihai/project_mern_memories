@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
 import { createPost, updatePost } from '../../actions/posts';
 import { StyledButton, StyledFileUploadContainer, StyledForm, StyledPaper } from './index.styled';
-import AddIcon from '@mui/icons-material/Add';
 
 const Form = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({ creator: '', title: '', message: '', tags: '', selectedFile: '' });
